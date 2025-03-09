@@ -1,0 +1,41 @@
+<div class="">
+<div class="bg-image">
+
+        <div class="content container text-center text-white text-capitalize ">
+            <h1 class="title">find your dream job today!</h1>
+        <p class="py-3 desc">Connecting Talent with Opportunity: Your Gateway to Career Success</p>
+        <form method="get" class="input-group mb-3 mx-auto my-4">
+            <input type="text" class="form-control p-3" name="jobTitle" placeholder="Job Title or Company" aria-label="Job title" aria-describedby="button-addon2">
+            <select name="location" placeholder="Select Location" name="location"  class="form-select" aria-label="" aria-describedby="button-addon2">
+                <option value="" disabled selected>Select Location</option>
+                <option *ngFor="let gov of governorates" [value]="gov">{{ gov }}</option>
+            </select>  
+            <button class="btn btn-search" type="submit" id="button-addon2"><i class="fa-solid fa-magnifying-glass"></i> Search Job</button>
+        </form>
+        <div class="row responsive-width mx-auto mt-5">
+            <div class="col-4 d-flex">
+                <div class="icon"><i class="fa-solid fa-briefcase"></i></div>
+                <div class="count text-start">
+                    <h5>{{job}}</h5>
+                    <p>Jobs</p>
+                </div>
+            </div>
+            <div class="col-4 d-flex">
+                <div class="icon"><i class="fa-solid fa-users"></i></div>
+                <div class="count text-start">
+                    <h5>{{user}}</h5>
+                    <p>Candidates</p>
+                </div>
+            </div>
+            <div class="col-4 d-flex">
+                <div class="icon"><i class="fa-solid fa-building"></i></div>
+                <div class="count text-start">
+                    <h5>{{company}}</h5>
+                    <p>Companies</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</div>
+</div>

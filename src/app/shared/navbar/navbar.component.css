@@ -1,0 +1,49 @@
+
+.nav1{
+    z-index: 1111111;
+    border-bottom: 1px solid #3b3838e2;
+    padding-bottom: 10px;
+    transition: all 0.3s ease-in-out;
+    /* background: black; */
+    /* position: absolute; */
+}
+.navbar-expand-lg{
+    /* position: absolute; */
+    float: right;
+    width: 100%;
+    /* margin-bottom: 200px; */
+}
+.btn-reg{
+    background-color: #295f4e;
+    color: #FAFAF9;
+}
+.btn00:active + .navbar-expand-lg{
+    /* margin-bottom: 50px !important; */
+    background:red;
+}
+.btn-login{
+    color: #295f4e;
+    border: 1px solid #295f4e;
+}
+.nav-link{
+    color: #FAFAF9;
+}
+.activeLink{
+    color: #295f4e;
+    font-weight: bold;
+    border-bottom: 1px solid #FAFAF9;
+} 
+.navbar-brand{
+    color: #FAFAF9;
+}
+
+.navbar {
+    transition: all 0.3s ease-in-out;
+    overflow: hidden;
+}
+
+.content {
+    transition: margin-top 0.3s ease-in-out;
+}
+
+
