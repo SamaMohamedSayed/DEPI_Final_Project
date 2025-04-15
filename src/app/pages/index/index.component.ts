@@ -8,13 +8,7 @@ import { Component } from '@angular/core';
 })
 export class IndexComponent {
 
-  
-  governorates: string[] = [
-    'Cairo', 'Alexandria', 'Giza', 'Luxor', 'Aswan', 'Suez', 
-    'Port Said', 'Ismailia', 'Fayoum', 'Beni Suef', 'Minya', 
-    'Sohag', 'Qena', 'Assiut', 'Red Sea', 'Sharqia', 'Dakahlia', 
-    'Beheira', 'Kafr El Sheikh', 'Gharbia', 'Monufia', 'Matrouh'
-  ]
+
 
     job:number=0;
     user:number=0;
@@ -39,6 +33,19 @@ export class IndexComponent {
       }, 30);
     }
 
-    
+
+    ngAfterViewInit() {
+    const elements = document.querySelectorAll('.from-left, .from-right');
+
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('animate');
+        }
+      });
+    });
+
+    elements.forEach(el => observer.observe(el));
+  }
 }
 

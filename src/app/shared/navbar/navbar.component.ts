@@ -21,20 +21,14 @@ export class NavbarComponent {
     
     setTimeout(() => {
       this.updateNavbarHeight();
-    }, 300); // ننتظر انتهاء الـ transition
+    }, 300); 
   }
 
   updateNavbarHeight() {
     const navbarCollapse = this.navbar.nativeElement.querySelector('.navbar-collapse');
 
-    if (!navbarCollapse) {
-        console.log("❌ navbar-collapse not found!");
-        return;
-    }
-
     const isExpanded = navbarCollapse.classList.contains('show');
-    console.log("✅ Navbar expanded:", isExpanded);
-    console.log("📏 Navbar scrollHeight:", navbarCollapse.scrollHeight);
+
 
     this.navbarHeight = isExpanded ? navbarCollapse.scrollHeight : 0;
 }
