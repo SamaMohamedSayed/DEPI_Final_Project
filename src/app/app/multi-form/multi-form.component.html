@@ -1,0 +1,68 @@
+<div class="form-container" [formGroup]="form">
+    
+      <!-- Step 1: Account Info -->
+      <div *ngIf="step === 1" formGroupName="personal">
+        <h2>Account Info</h2>
+        <input formControlName="firstName" placeholder="First Name">
+        <input formControlName="lastName" placeholder="Last Name">
+        <input formControlName="email" placeholder="Email" type="email">
+        <input formControlName="password" placeholder="Password" type="password">
+        <input formControlName="confirmPassword" placeholder="Confirm Password" type="password">
+      </div>
+  
+      <!-- Step 2: Job Info -->
+      <div *ngIf="step === 2" formGroupName="jobInfo">
+        <h2>Job Info</h2>
+        <input formControlName="jobTitle" placeholder="Job Title">
+  
+        <!-- Method Switch -->
+        <label>
+          <input type="radio" value="upload" formControlName="method"> Upload Your CV
+        </label>
+        <label>
+          <input type="radio" value="manual" formControlName="method"> Fill Manually
+        </label>
+  
+        <!-- Upload -->
+        <div *ngIf="form.get('jobInfo.method')?.value === 'upload'">
+          <input type="file" (change)="onFileChange($event)">
+        </div>
+  
+        <!-- Manual -->
+        <div formGroupName="manual" *ngIf="form.get('jobInfo.method')?.value === 'manual'">
+          <input formControlName="country" placeholder="Country">
+          <input formControlName="city" placeholder="City">
+          <input formControlName="education" placeholder="Education">
+          <input formControlName="field" placeholder="Field of Study">
+        </div>
+      </div>
+  
+      <!-- Step 3: Preferences -->
+      <div *ngIf="step === 3" formGroupName="workPreferences">
+        <h2>Job Preferences</h2>
+        <select formControlName="type">
+          <option value="">-- Type of Job --</option>
+          <option>Full-time</option>
+          <option>Part-time</option>
+          <option>Freelancing</option>
+        </select>
+  
+        <select formControlName="workplace">
+          <option value="">-- Workplace --</option>
+          <option>On-site</option>
+          <option>Remote</option>
+          <option>Hybrid</option>
+        </select>
+  
+        <input formControlName="category" placeholder="Job Category">
+      </div>
+  
+      <!-- Navigation -->
+      <div class="buttons">
+        <button type="button" (click)="prevStep()" [disabled]="step === 1">Back</button>
+        <button type="button" (click)="nextStep()" *ngIf="step < 3">Next</button>
+        <button type="button" (click)="submit()" *ngIf="step === 3">Submit</button>
+      </div>
+    
+  </div>
+  
