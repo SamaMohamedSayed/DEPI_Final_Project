@@ -6,6 +6,7 @@ import { MultiFormComponent } from './app/multi-form/multi-form.component';
 const routes: Routes = [
   { path: '', component:IndexComponent },
   { path: 'register', component: MultiFormComponent }
+
 ];
 
 @NgModule({
