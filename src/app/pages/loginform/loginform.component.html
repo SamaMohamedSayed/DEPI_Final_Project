@@ -1,1 +1,42 @@
-<p>loginform works!</p>
+<div class="bg-image pt-5">
+
+    <h1 class="header">JOBOTIC</h1>
+    <form action="" class="row form-container" [formGroup]="loginForm" (ngSubmit)="handleSubmit()" (input)="isSubmitted= false">
+        <fieldset class="">
+            <!-- <legend class="header">Sign In</legend> -->
+            <p class="welcome-msg">Welcome Back <i class="fa-solid fa-face-smile-wink icon"></i></p>
+            <div class="col-12 input-container email mt-4">
+                <input type="text" formControlName="email">
+                <div class="error-msg" *ngIf="isSubmitted && formControl.email.invalid">
+                    <div *ngIf="formControl.email.errors?.['required']">
+                        Email is required
+                    </div>
+                    <div *ngIf="formControl.email.errors?.['email']">
+                        Email is invalid
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-12 pass input-container">
+                <input type="password" class="mt-4" formControlName="password">
+                <div class="error-msg" *ngIf="isSubmitted && formControl.password.invalid"> 
+                    <div *ngIf="formControl.password.errors?.['required']">
+                        Password is required
+                    </div>
+                    <div *ngIf="formControl.password.errors?.['pattern']">
+                        Must contain at least one  number and one uppercase and lowercase letter, and at least 8 or more characters
+                    </div>
+                </div>
+            </div>
+            <div class="col-12">
+                <button class="mt-4">Submit</button>
+            </div>
+            <div class="pass-link">
+                <a href="" class="link">Forgot Password?</a>
+                <span class="border"></span>
+            </div>
+            <p class="text-center">New to JOBOTIC? <a routerLink="/register" class="link">Join now</a></p>
+        </fieldset>
+    </form>
+
+</div>

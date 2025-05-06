@@ -1,4 +1,6 @@
 import { Component } from '@angular/core';
+import { GlobalService } from '../../services/global.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-index',
@@ -14,7 +16,7 @@ export class IndexComponent {
     user:number=0;
     company:number=0;
 
-    constructor() {
+    constructor(public global:GlobalService ,private router:Router) {
       this.startCounter('job', 1000);
       this.startCounter('user', 1500);
       this.startCounter('company', 1200);
@@ -46,6 +48,15 @@ export class IndexComponent {
     });
 
     elements.forEach(el => observer.observe(el));
+  }
+
+  handleJob(){
+    if(this.global.isLogin==true){
+      this.router.navigateByUrl('/jobs')
+    }
+    else{
+      this.router.navigateByUrl('/login')
+    }
   }
 }
 

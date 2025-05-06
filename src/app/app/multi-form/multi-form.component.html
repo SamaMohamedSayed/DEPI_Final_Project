@@ -1,10 +1,11 @@
 <div class="form-container" [formGroup]="form" (input)="submittedStep1= false">
   <h1 class="site-title">JOBOTIC</h1>
+
       <!-- Step 1: Account Info -->
       <div *ngIf="step === 1" formGroupName="personal">
         <h2>Account Info</h2>
-        <div class="name d-flex justify-content-between">
-          <div class="fname">
+        <div class="row">
+          <div class="col-6">
             <input formControlName="firstName" placeholder="First Name" class="form-control">
             <div class="error-message" *ngIf="submittedStep1 && form.get('personal.firstName')?.invalid">
               <div *ngIf="form.get('personal.firstName')?.errors?.['required']">
@@ -13,7 +14,7 @@
             </div>
           </div>
 
-          <div class="lname">
+          <div class="col-6">
             <input formControlName="lastName" placeholder="Last Name" class="form-control">
             <div class="error-message" *ngIf="submittedStep1 && form.get('personal.lastName')?.invalid">
               <div *ngIf="form.get('personal.lastName')?.errors?.['required']">
@@ -23,7 +24,7 @@
           </div>
         </div>
 
-        <input formControlName="email" placeholder="Email" type="email" class="form-control">
+        <input formControlName="email" placeholder="Email" type="email" class="form-control mt-3">
         <div class="error-message" *ngIf="submittedStep1 && form.get('personal.email')?.invalid">
           <div *ngIf="form.get('personal.email')?.errors?.['required']">
             Email is required
@@ -33,7 +34,7 @@
           </div>
         </div>
 
-        <input formControlName="password" placeholder="Password" type="password" class="form-control">
+        <input formControlName="password" placeholder="Password" type="password" class="form-control mt-3">
         <div class="error-message" *ngIf="submittedStep1 && form.get('personal.password')?.invalid">
           <div *ngIf="form.get('personal.password')?.errors?.['required']">
             Password is required
@@ -43,7 +44,7 @@
           </div>
         </div>
 
-        <input formControlName="confirmPassword" placeholder="Confirm Password" type="password" class="form-control">
+        <input formControlName="confirmPassword" placeholder="Confirm Password" type="password" class="form-control mt-3">
         <div class="error-message" *ngIf="submittedStep1 && form.get('personal.confirmPassword')?.invalid">
           <div *ngIf="form.get('personal.confirmPassword')?.errors?.['required']">
             This feild is required
@@ -53,7 +54,7 @@
           </div>
         </div>
 
-        <input formControlName="jobTitle" placeholder="Job Title" class="form-control">
+        <input formControlName="jobTitle" placeholder="Job Title" class="form-control mt-3">
         <div class="error-message" *ngIf="submittedStep1 && form.get('personal.jobTitle')?.invalid">
           <div *ngIf="form.get('personal.jobTitle')?.errors?.['required']">
             This feild is required
@@ -63,11 +64,9 @@
   
       <!-- Step 2: Job Info -->
       <div *ngIf="step === 2" formGroupName="jobInfo">
-        <h2>Job Info</h2>
+        <h2>Personal Info</h2>
         
-  
         <!-- Method Switch -->
-
         <div class="row mx-lg-3 mx-md-1 mx-sm-5">
           <!-- Upload Icon -->
           <div class="col-md-6 col-12">
@@ -101,7 +100,7 @@
         
         <!-- Manual Entry Form -->
         <div *ngIf="form.get('jobInfo.method')?.value === 'manual'" formGroupName="manual">
-          <div class="row">
+          <div class="row mt-3">
             <div class="mb-2 col-6">
               <input formControlName="country" placeholder="Country" class="form-control"/>
               <div class="" *ngIf="submittedStep2 && form.get('jobInfo.manual.country')?.invalid">

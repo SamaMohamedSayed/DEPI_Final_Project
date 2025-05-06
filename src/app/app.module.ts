@@ -13,7 +13,9 @@ import { ReactiveFormsModule } from '@angular/forms';
 import { MultiFormComponent } from './app/multi-form/multi-form.component';
 import { NgSelectModule } from '@ng-select/ng-select';
 import { LoginformComponent } from './pages/loginform/loginform.component';
-
+import { NgxPaginationModule } from 'ngx-pagination';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { ToastrModule } from 'ngx-toastr';
 
 @NgModule({
     declarations: [
@@ -28,9 +30,14 @@ import { LoginformComponent } from './pages/loginform/loginform.component';
       BrowserModule,
       AppRoutingModule,
       ReactiveFormsModule,
-      NgSelectModule
+      NgSelectModule,
+      NgxPaginationModule,
+      BrowserAnimationsModule,
+      ToastrModule.forRoot({
+        closeButton:true,
+        // positionClass: 'custom-toast-position'
+      })
 
-        
     ],
     providers: [],
     bootstrap: [AppComponent]

@@ -1,0 +1,42 @@
+.location{
+    color: #858383;
+    font-size: 14px;
+}
+.job-title{
+    font-size: 19px;
+}
+.block{
+    background-color: #4cb0927b;
+    margin-right: 10px;
+    padding: 8px;
+    border-radius: 10px;
+}
+.card:hover{
+    box-shadow: 0 2px 6px rgba(0,0,0,0.05);
+    cursor: pointer;
+}
+
+/* .pagination{
+    display: flex;
+    justify-content: center;
+} */
+
+.pagination ::ng-deep .ngx-pagination .current {
+    background-color: #295f4e !important;
+    color: #FAFAF9 !important;
+    border-radius: 5px;
+    border: none;
+    margin: 0 10px;
+}
+
+.pagination ::ng-deep .ngx-pagination li a {
+    color: #295f4e;
+    border: 1px solid #295f4e;
+    padding: 5px 10px;
+    border-radius: 5px;
+    text-decoration: none;
+}
+.pagination ::ng-deep .ngx-pagination li a:hover {
+    background-color: #295f4e;
+    color: white;
+}

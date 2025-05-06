@@ -1,4 +1,5 @@
 import { Component, ElementRef, ViewChild, AfterViewInit } from '@angular/core';
+import { GlobalService } from '../../services/global.service';
 
 
 @Component({
@@ -8,6 +9,7 @@ import { Component, ElementRef, ViewChild, AfterViewInit } from '@angular/core';
   styleUrl: './navbar.component.css'
 })
 export class NavbarComponent {
+  constructor(public global:GlobalService){}
   
   @ViewChild('navbar') navbar!: ElementRef;
   navbarHeight = 0;

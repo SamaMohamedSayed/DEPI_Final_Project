@@ -3,6 +3,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
+import { ToastrService } from 'ngx-toastr';
 
 
 @Component({
@@ -22,7 +23,7 @@ export class MultiFormComponent implements OnInit {
   selectedFile: any ;
   selectedMethod: 'upload' | 'manual' | null = null;
 
-  constructor(private fb: FormBuilder,private router:Router) {}
+  constructor(private fb: FormBuilder,private router:Router,private toastr:ToastrService) {}
   
 
   ngOnInit(): void {
@@ -83,7 +84,6 @@ export class MultiFormComponent implements OnInit {
       this.submittedStep2 = true;
       const jobInfo = this.form.get('jobInfo') as FormGroup;
       
-      // التحقق من وجود طريقة محددة
       if (!jobInfo.get('method')?.value) {
         jobInfo.get('method')?.setErrors({ 'required': true });
         return;
@@ -100,7 +100,7 @@ export class MultiFormComponent implements OnInit {
           this.form.get('jobInfo.cvFile')?.setErrors({ 'required': true });
           return;
         }
-        // تأكد من مسح الأخطاء إذا كان الملف موجودًا
+
         this.form.get('jobInfo.cvFile')?.setErrors(null);
       }
       
@@ -108,8 +108,7 @@ export class MultiFormComponent implements OnInit {
     }else  if (this.step === 3) {
       this.submittedStep3 = true;
       const preferences = this.form.get('workPreferences') as FormGroup;
-  
-      // التحقق من صلاحية الحقول
+
       if (!preferences.get('type')?.value || preferences.get('type')?.value.length === 0) {
         preferences.get('type')?.setErrors({ 'required': true });
       }
@@ -122,13 +121,10 @@ export class MultiFormComponent implements OnInit {
         preferences.get('category')?.setErrors({ 'required': true });
       }
   
-      // إذا كان هناك خطأ في الفورم، نوقف التقدم إلى الخطوة التالية
       if (preferences.invalid) {
         preferences.markAllAsTouched();
         return;
       }
-  
-      // إذا كانت كل الحقول صالحة، ننتقل إلى الخطوة التالية
       this.step++;
     }
   }
@@ -165,14 +161,11 @@ export class MultiFormComponent implements OnInit {
     const file = event.target.files[0];
     if (file) {
       this.selectedFile = file;
-      // لا تحاول تعيين قيمة الملف مباشرة على عنصر الإدخال
-      // بدلاً من ذلك، قم بتحديث نموذج الفورم فقط
       this.form.get('jobInfo.cvFile')?.setValue(file);
       this.form.get('jobInfo.cvFile')?.updateValueAndValidity();
       this.isFileUploaded = true;
     }
   }
-  
   
   prevStep() {
     if (this.step > 1) this.step--;
@@ -201,10 +194,8 @@ export class MultiFormComponent implements OnInit {
     this.submittedStep2 = true;
     this.submittedStep3 = true;
   
-    // التحقق من تطابق كلمة المرور
     this.checkPasswordMatch();
   
-    // طباعة حالة الفورم للتصحيح
     console.log('Form Status:', this.form.status);
     console.log('Form Value:', JSON.stringify(this.form.value));
     console.log('Form Errors:', {
@@ -221,6 +212,7 @@ export class MultiFormComponent implements OnInit {
   
     console.log('Form submitted successfully!');
     this.router.navigate(['/']);
+    this.toastr.info('Sign in using ur account');
   }
 
 }

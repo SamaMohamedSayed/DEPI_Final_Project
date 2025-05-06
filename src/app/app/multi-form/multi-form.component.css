@@ -31,28 +31,11 @@
     font-size: 1.6rem;
     margin-bottom: 20px;
     border-bottom: 2px solid #ccc;
-  padding-bottom: 5px;
-  margin-bottom: 15px;
+    padding-bottom: 5px;
+    margin-bottom: 15px;
   }
   input.form-control {
     background-color: #fafafa;
-  }
-  .fname,.lname{
-    width: 48%;
-  }
-
-  input, select {
-    border: 1px solid #ccc;
-    margin: 8px 0 12px;
-  padding: 12px;
-  border-radius: 8px;
-  font-size: 16px;
-  color: #32424a;
-  }
-  
-  input[type="radio"] {
-    width: auto;
-    margin-right: 8px;
   }
   .manual-form {
     display: flex;
@@ -214,4 +197,5 @@ ng-select .ng-placeholder {
     margin-bottom: 10px;
   }
 }
+
 

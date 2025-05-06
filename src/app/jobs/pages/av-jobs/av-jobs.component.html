@@ -1,0 +1,43 @@
+<div>
+    <div class="card mt-3" *ngFor="let item of jobs | paginate: { id: 'jobs',
+    itemsPerPage: pageSize,
+    currentPage: p,
+    totalItems: total }">
+        <div class="card-body">
+            <div class="title d-flex justify-content-between">
+                <h5 class="job-title">{{item.title}}</h5>
+                <div class="save-icon"><i class="fa-regular fa-bookmark"></i></div>
+            </div>
+            <div class="kind-job d-flex mb-2">
+                <div class="block">Full-time</div>
+                <div class="block">Part-time</div>
+                <div class="block">Freelance</div>
+            </div>
+            <p class="location"><i class="fa-solid fa-location-dot"></i> Cairo,Egypt</p>
+            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Provident, molestiae quae modi pariatur esse rerum numquam repudiandae amet. Quod natus voluptas cupiditate, maiores quas quasi.</p>
+        </div>
+    </div>
+    <div class="pagination mt-2">
+        <pagination-controls  id="jobs"
+        (pageChange)="pageChanged($event)"
+        (pageBoundsCorrection)="pageChanged($event)"
+        [maxSize]="5"
+        [directionLinks]="true"
+        [autoHide]="true"
+        [responsive]="true"
+        previousLabel="Previous"
+        nextLabel="Next"
+        screenReaderPaginationLabel="Pagination"
+        screenReaderPageLabel="page"
+        screenReaderCurrentLabel="You're on page">
+    </pagination-controls>
+    </div>
+
+</div>
+
+
+
+
+
+
+

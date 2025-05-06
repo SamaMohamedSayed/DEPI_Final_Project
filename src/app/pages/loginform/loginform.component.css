@@ -1,0 +1,106 @@
+:host{
+    display: block;
+    background: linear-gradient(to right, #e0eafc, #cfdef3);
+    min-height: 100vh;
+    font-family: 'Arial', sans-serif;
+    /* padding-top: 50px; */
+}
+
+.bg-image{
+    background:linear-gradient(rgba(13, 13, 13, 0.797),rgba(0, 0, 0, 0.927)), url('bg-login.jpg');
+    width: 100%;
+    height: 100vh;
+    background-size: cover;
+    background-position: center;
+    /* padding-top: 50px; */
+}
+
+.form-container {
+    margin: auto;
+    background: #ffffff; 
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    padding: 40px;
+    width: 37%;
+    text-align: left;
+}
+.header{
+    color: #ffffff;
+    font-weight: 600;
+    padding-bottom: 5px;
+    margin-bottom: 15px;
+    text-align: center;
+}
+.welcome-msg{
+    text-align: center;
+    font-size: 1.4em;
+    border-bottom: 2px solid #ccc;
+}
+.icon{
+    color: #459179;
+    margin-left: 5px;
+}
+.input-container{
+    position: relative;
+    
+}
+.input-container input{
+    width: 100%;
+    padding: 8px;
+    border: 1px solid #ccc;
+}
+.email::before{
+    content: "Email";
+    position: absolute;
+    top:-10px;
+    left:10px;
+    background-color: white;
+    font-size: 17px;
+    letter-spacing:0.5px;
+}
+.pass::before{
+    content: "Password";
+    position: absolute;
+    top:12px;
+    left:10px;
+    background-color: white;
+    font-size: 17px;
+    letter-spacing:0.5px;
+}
+input:focus{
+    outline: 1px solid #459179;
+}
+button {
+    padding: 10px 20px;
+    border: none;
+    width: 100%;
+    background-color: #295f4e;
+    color: white;
+    cursor: pointer;
+    font-weight: bold;
+    transition: background-color 0.3s ease;
+}
+
+button:hover {
+    background-color: #1f4a3d;
+}
+.pass-link{
+    text-align: center;
+    margin: 17px auto;
+}
+.border{
+    border: 1px solid #ccc;
+    display: block;
+    width: 20%;
+    margin: auto;
+    margin-top: 5px;
+}
+.link{
+    text-decoration: none;
+    color: #295f4e;
+}
+.error-msg{
+    color: red;
+    font-size: 0.9em;
+    margin-left: 7px;
+    margin-top: 3px;
+}

@@ -1,0 +1,40 @@
+:host{
+    display: block;
+    background-color: #1b2d28;
+    min-height: 100vh;
+    padding: 15px;
+}
+.image{
+    border-radius: 50%;
+    width: 45%;
+    margin-bottom: 15px;
+}
+.content{
+    & h5{
+        color: #FAFAF9;
+    }
+    & p{
+        color: #cecccc;
+    }
+}
+.link{
+    text-decoration: none;
+    color: #cecccc;
+}
+li{
+    margin-bottom: 18px;
+    font-size: 18px;
+}
+.active{
+    color: #FAFAF9;
+    font-weight: 600;
+}
+.right-side{
+    background-color: #FAFAF9;
+    min-height: 95vh;
+    border-radius: 10px;
+    padding: 10px;
+}
+.nav-list{
+    margin-top: 80px;
+}

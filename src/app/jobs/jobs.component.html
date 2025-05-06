@@ -1,0 +1,33 @@
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-2 sidebar mt-5">
+            <div class="user-img">
+                <img src="user icon.jpg" alt="" class="image">
+            </div>
+            <div class="content">
+                <div class="info">
+                    <h5>Sama Mohamed</h5>
+                    <p>samamohamed a gmail.com</p>
+                </div>
+                <div class="nav-list">
+                    <ul class="list-unstyled">
+                        <li><a routerLink="/jobs/" routerLinkActive="active" [routerLinkActiveOptions]="{'exact':true}" class="link mb-5">Available Jobs</a></li>
+                        <li><a routerLink="/jobs/saved-jobs" routerLinkActive="active" class="link">Saved Jobs</a></li>
+                        <li><a href="" class="link">Jobs Progress</a></li>
+                        <li><a routerLink="/profile" routerLinkActive="active" class="link">Profile</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-10 right-side">
+            <div class="container">
+                <div class="position-relative">
+                    <i class="fa fa-search position-absolute me-5" style="left: 10px; top: 50%; transform: translateY(-50%); color: #aaa;"></i>
+                    <input type="text" placeholder="Search..." class="form-control ps-4">
+                </div>
+                <router-outlet></router-outlet>
+            </div>
+        </div>
+    </div>
+</div>
