@@ -6,7 +6,7 @@ import { LoginformComponent } from './pages/loginform/loginform.component';
 
 const routes: Routes = [
   { path: '', component:IndexComponent },
-  { path: 'register', component: MultiFormComponent },
+  { path: 'seeker-form', component: MultiFormComponent },
   { path: 'login', component: LoginformComponent},
   { path: 'jobs', loadChildren: () => import('./jobs/jobs.module').then(m => m.JobsModule) },
   { path: 'profile', loadChildren: () => import('./profile/profile.module').then(m => m.ProfileModule) }

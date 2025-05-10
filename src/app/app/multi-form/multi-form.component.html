@@ -6,7 +6,7 @@
         <h2>Account Info</h2>
         <div class="row">
           <div class="col-6">
-            <input formControlName="firstName" placeholder="First Name" class="form-control">
+            <input formControlName="firstName" placeholder="First Name" class="form-control" name="firstName">
             <div class="error-message" *ngIf="submittedStep1 && form.get('personal.firstName')?.invalid">
               <div *ngIf="form.get('personal.firstName')?.errors?.['required']">
                 First name is required
@@ -15,7 +15,7 @@
           </div>
 
           <div class="col-6">
-            <input formControlName="lastName" placeholder="Last Name" class="form-control">
+            <input formControlName="lastName" placeholder="Last Name" class="form-control" name="lastName">
             <div class="error-message" *ngIf="submittedStep1 && form.get('personal.lastName')?.invalid">
               <div *ngIf="form.get('personal.lastName')?.errors?.['required']">
                 Last name is required
@@ -23,18 +23,30 @@
             </div>
           </div>
         </div>
-
-        <input formControlName="email" placeholder="Email" type="email" class="form-control mt-3">
-        <div class="error-message" *ngIf="submittedStep1 && form.get('personal.email')?.invalid">
-          <div *ngIf="form.get('personal.email')?.errors?.['required']">
-            Email is required
+        
+        <div class="row">
+          <div class="col-6">
+            <input formControlName="email" placeholder="Email" type="email" class="form-control mt-3" name="email">
+            <div class="error-message" *ngIf="submittedStep1 && form.get('personal.email')?.invalid">
+              <div *ngIf="form.get('personal.email')?.errors?.['required']">
+                Email is required
+              </div>
+              <div *ngIf="form.get('personal.email')?.errors?.['email']">
+                Invalid Email
+              </div>
+            </div>
           </div>
-          <div *ngIf="form.get('personal.email')?.errors?.['email']">
-            Invalid Email
+
+          <div class="col-6">
+            <input formControlName="phone" placeholder="Phone number" class="form-control mt-3">
+            <div class="error-message" *ngIf="submittedStep1 && form.get('personal.phone')?.invalid">
+              <div *ngIf="form.get('personal.phone')?.errors?.['required']">
+                Phone number is required
+              </div>
+            </div>
           </div>
         </div>
-
-        <input formControlName="password" placeholder="Password" type="password" class="form-control mt-3">
+        <input formControlName="password" name="password" placeholder="Password" type="password" class="form-control mt-3">
         <div class="error-message" *ngIf="submittedStep1 && form.get('personal.password')?.invalid">
           <div *ngIf="form.get('personal.password')?.errors?.['required']">
             Password is required
@@ -54,12 +66,19 @@
           </div>
         </div>
 
-        <input formControlName="jobTitle" placeholder="Job Title" class="form-control mt-3">
-        <div class="error-message" *ngIf="submittedStep1 && form.get('personal.jobTitle')?.invalid">
-          <div *ngIf="form.get('personal.jobTitle')?.errors?.['required']">
+        <!-- <input formControlName="Job_Title" placeholder="Job Title" class="form-control mt-3">
+        <div class="error-message" *ngIf="submittedStep1 && form.get('personal.Job_Title')?.invalid">
+          <div *ngIf="form.get('personal.Job_Title')?.errors?.['required']">
             This feild is required
           </div>
-        </div>
+        </div> -->
+
+        <input formControlName="country" placeholder="Country" class="form-control" name="country"/>
+              <div class="" *ngIf="submittedStep2 && form.get('personal.country')?.invalid">
+                <div class="error-message">
+                  Enter your country
+                </div>
+              </div>
       </div>
   
       <!-- Step 2: Job Info -->
@@ -70,7 +89,7 @@
         <div class="row mx-lg-3 mx-md-1 mx-sm-5">
           <!-- Upload Icon -->
           <div class="col-md-6 col-12">
-            <div class="text-center method-card custom-file-upload"  [ngClass]="{'disabled': selectedMethod === 'manual'}" (click)="selectUploadMethod()">
+            <div class="text-center method-card custom-file-upload"  [ngClass]="{'disabled': selectedMethod === 'manual_data'}" (click)="selectUploadMethod()">
               <label for="cvUpload" class="upload-label">
                 <i class="fa-solid fa-cloud-arrow-up fa-2x mb-2"></i>
                 <p class="upload-text">Click to upload CV</p>
@@ -99,31 +118,11 @@
         </div>
         
         <!-- Manual Entry Form -->
-        <div *ngIf="form.get('jobInfo.method')?.value === 'manual'" formGroupName="manual">
+        <div *ngIf="form.get('jobInfo.method')?.value === 'manual_data'" formGroupName="manual_data">
           <div class="row mt-3">
             <div class="mb-2 col-6">
-              <input formControlName="country" placeholder="Country" class="form-control"/>
-              <div class="" *ngIf="submittedStep2 && form.get('jobInfo.manual.country')?.invalid">
-                <div class="error-message">
-                  Enter your country
-                </div>
-              </div>
-            </div>
-
-            <div class="mb-2 col-6">
-              <input formControlName="city" placeholder="City" class="form-control"/>
-              <div class="" *ngIf="submittedStep2 && form.get('jobInfo.manual.city')?.invalid">
-                <div class="error-message">
-                  Enter your city
-                </div>
-              </div>
-            </div>
-          </div>
-          
-          <div class="row">
-            <div class="mb-2 col-6">
-              <input formControlName="education" placeholder="Education" class="form-control"/>
-              <div class="" *ngIf="submittedStep2 && form.get('jobInfo.manual.education')?.invalid">
+              <input formControlName="University" placeholder="Education" class="form-control" name="University"/>
+              <div class="" *ngIf="submittedStep2 && form.get('jobInfo.manual_data.University')?.invalid">
                 <div class="error-message">
                   Enter your education
                 </div>
@@ -131,20 +130,48 @@
             </div>
 
             <div class="mb-2 col-6">
-              <input formControlName="field" placeholder="Field of Study" class="form-control"/>
-              <div class="" *ngIf="submittedStep2 && form.get('jobInfo.manual.field')?.invalid">
+              <input formControlName="Field_Study" placeholder="Field of Study" class="form-control" name="Field_Study"/>
+              <div class="" *ngIf="submittedStep2 && form.get('jobInfo.manual_data.Field_Study')?.invalid">
                 <div class="error-message">
                   Enter your Field
                 </div>
               </div>
             </div>
+          </div>
+          
+          <div class="row"> 
+            <div class="mb-2 col-6">
+              <!-- <input formControlName="country" placeholder="Country" class="form-control" name="country"/>
+              <div class="" *ngIf="submittedStep2 && form.get('jobInfo.manual.country')?.invalid">
+                <div class="error-message">
+                  Enter your country
+                </div>
+              </div> -->
+
+              <input formControlName="Job_Title" placeholder="Job Title" class="form-control mt-3">
+        <div class="error-message" *ngIf="submittedStep1 && form.get('jobInfo.manual_data.Job_Title')?.invalid">
+          <div *ngIf="form.get('jobInfo.manual_data.Job_Title')?.errors?.['required']">
+            This feild is required
+          </div>
+        </div>
+            </div>
+
+            <div class="mb-2 col-6">
+                <ng-select
+                  formControlName="Experience_Level" [items]="Experience_Level" bindLabel="label" bindValue="value"
+                  [multiple]="false" placeholder="Experience Level" (change)="validateLevel()">
+                </ng-select>
+                <div class="error-message" *ngIf="submittedStep2 && form.get('jobInfo.manual_data.Experience_Level')?.errors?.['required']">
+                  Please choose your experience level.
+                </div>
+            </div>
           </div> 
           <ng-select
-            formControlName="type" [items]="skills" bindLabel="label" bindValue="value"
+            formControlName="skills" [items]="skills" bindLabel="label" bindValue="value"
             [multiple]="true" placeholder="Skills" (change)="validateSkills()">
           </ng-select>
-        <div *ngIf="submittedStep2 && form.get('jobInfo.manual.type')?.invalid">
-          <div class="error-message" *ngIf="form.get('jobInfo.manual.type')?.errors?.['required']">
+        <div *ngIf="submittedStep2 && form.get('jobInfo.manual_data.skills')?.invalid">
+          <div class="error-message" *ngIf="form.get('jobInfo.manual_data.skills')?.errors?.['required']">
             Please select at least one skill.
           </div>
         </div>
@@ -158,29 +185,29 @@
       <div *ngIf="step === 3" formGroupName="workPreferences">
         <h2>Job Preferences</h2>
         <ng-select
-        formControlName="type" [items]="jobTypes" bindLabel="label" bindValue="value" [multiple]="true"
+        formControlName="Job_Type" [items]="jobTypes" bindLabel="label" bindValue="value" [multiple]="true"
         placeholder="Select job types"></ng-select>
-        <div class="error-message" *ngIf="submittedStep3 && form.get('workPreferences.type')?.invalid">
-          <div *ngIf="form.get('workPreferences.type')?.errors?.['required']">
+        <div class="error-message" *ngIf="submittedStep3 && form.get('workPreferences.Job_Type')?.invalid">
+          <div *ngIf="form.get('workPreferences.Job_Type')?.errors?.['required']">
             Please select at least one job type
           </div>
         </div>
       
       <ng-select
-        formControlName="workplace" [items]="workplaces" bindLabel="label" bindValue="value" [multiple]="true"
+        formControlName="Job_Workplace" [items]="workplaces" bindLabel="label" bindValue="value" [multiple]="true"
         placeholder="Select workplace options"></ng-select>
-        <div class="error-message" *ngIf="submittedStep3 && form.get('workPreferences.workplace')?.invalid">
-          <div *ngIf="form.get('workPreferences.workplace')?.errors?.['required']">
+        <div class="error-message" *ngIf="submittedStep3 && form.get('workPreferences.Job_Workplace')?.invalid">
+          <div *ngIf="form.get('workPreferences.Job_Workplace')?.errors?.['required']">
             Please select at least one workplace option
           </div>
         </div>
         
-        <input formControlName="category" placeholder="Job Category" class="form-control bg-white"/>
+        <!-- <input formControlName="category" placeholder="Job Category" class="form-control bg-white"/>
         <div class="error-message" *ngIf="submittedStep3 && form.get('workPreferences.category')?.invalid">
           <div *ngIf="form.get('workPreferences.category')?.errors?.['required']">
             Job category is required
           </div>
-        </div>
+        </div> -->
       </div>
   
       <!-- Navigation -->

@@ -35,7 +35,7 @@
     margin-bottom: 15px;
   }
   input.form-control {
-    background-color: #fafafa;
+    background-color: transparent;
   }
   .manual-form {
     display: flex;

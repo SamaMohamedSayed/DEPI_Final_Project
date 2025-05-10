@@ -50,13 +50,21 @@ export class IndexComponent {
     elements.forEach(el => observer.observe(el));
   }
 
-  handleJob(){
-    if(this.global.isLogin==true){
-      this.router.navigateByUrl('/jobs')
-    }
-    else{
-      this.router.navigateByUrl('/login')
-    }
+  // handleJob(){
+  //   if(this.global.isLogin==true){
+  //     this.router.navigateByUrl('/jobs')
+  //   }
+  //   else{
+  //     this.router.navigateByUrl('/login')
+  //   }
+  // }
+
+  goToSeekerForm() {
+    this.router.navigate(['/seeker-form'], { state: { role: 'job_seeker' } });
+  }
+
+  goToEmployerForm() {
+    this.router.navigate(['/employer-form'], { state: { role: 'employer' } });
   }
 }
 

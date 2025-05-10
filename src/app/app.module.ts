@@ -16,6 +16,7 @@ import { LoginformComponent } from './pages/loginform/loginform.component';
 import { NgxPaginationModule } from 'ngx-pagination';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { ToastrModule } from 'ngx-toastr';
+import { provideHttpClient } from '@angular/common/http';
 
 @NgModule({
     declarations: [
@@ -35,11 +36,10 @@ import { ToastrModule } from 'ngx-toastr';
       BrowserAnimationsModule,
       ToastrModule.forRoot({
         closeButton:true,
-        // positionClass: 'custom-toast-position'
       })
 
     ],
-    providers: [],
+    providers: [provideHttpClient()],
     bootstrap: [AppComponent]
   })
   export class AppModule {}
